@@ -13,26 +13,35 @@ public class CheckFibonacciMember {
 		int second = 1;
 		int third = 0;
 		int temp = 1;
+		int arrIndex = 1;
+		boolean flag = false;
 		
-		if(n == 1 || n == 2) {
-			System.out.println("1");
+		int fib[] = new int[n];
+		
+		if(n == 0) {
+			return true;
+		}
+		else if(n == 1) {
+			return true;
 		}
 		else {
 			while(temp < n) {
 				third = first+second;
+				fib[arrIndex] = third;
 				first = second;
 				second = third;
 				temp++;
+				arrIndex++;
 			}
-			System.out.print(third);
 		}
 		
-		if(third == n) {
-			return true;
+		for(int i=0; i<fib.length; i++) {
+			if(fib[i] == n) {
+				return true;
+			}
 		}
-		else {
-			return false;
-		}
+		
+		return flag;
 
 	}
 
@@ -41,13 +50,7 @@ public class CheckFibonacciMember {
 		sc = new Scanner(System.in);
 		number = sc.nextInt();
 		
-		boolean result = checkMember(number);
-		if(result == true) {
-			System.out.println(true);
-		}
-		else {
-			System.out.println(false);
-		}
+		System.out.println(checkMember(number));
 
 	}
 
