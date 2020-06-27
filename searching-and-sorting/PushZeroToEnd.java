@@ -24,17 +24,38 @@ public class PushZeroToEnd {
 	
 	public static void pushZerosAtEnd(int[] arr) {
 		
-		int count = 0;
-		  
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != 0) {
-                arr[count++] = arr[i];
-            }    
-        }    
-                                      
-        while (count < arr.length) {
-            arr[count++] = 0; 
-        }
+		// APPROACH ONE
+		
+//		int count = 0;
+//		  
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i] != 0) {
+//                arr[count++] = arr[i];
+//            }    
+//        }    
+//                                      
+//        while (count < arr.length) {
+//            arr[count++] = 0; 
+//        }
+		
+		// APPROACH TWO
+		
+		int sI = 0;
+		int eI = arr.length-1;
+		for(int i=0; i<arr.length; i++) {
+			if(arr[i] == 0) {
+				arr[eI] = arr[i];
+				eI--;
+			}
+			else {
+				arr[sI] = arr[i];
+				sI++;
+			}
+		}
+		
+		for(int i=0; i<arr.length; i++) {
+			System.out.print(arr[i]+" ");
+		}
 		
     }
 

@@ -24,21 +24,31 @@ public class CheckArrayRotation {
 	
 	public static int arrayRotateCheck(int[] arr){
     	
-		int i = arr.length-1;
-		int j = i-1;
-		int index = 0;
+		// SOLUTION ONE
 		
-		while(i>0 && j>0) {
-			if(arr[i] < arr[j]) {
-				index = i;
-				i--;
-				j--;
-				break;
-			}
-			else {
-				i--;
-				j--;
-				continue;
+//		int i = arr.length-1;
+//		int j = i-1;
+		int index = 0;
+//		
+//		while(i>0 && j>0) {
+//			if(arr[i] < arr[j]) {
+//				index = i;
+//				i--;
+//				j--;
+//				break;
+//			}
+//			else {
+//				i--;
+//				j--;
+//				continue;
+//			}
+//		}
+		
+		// SOLUTION TWO
+		
+		for(int i=0; i<arr.length-1; i++) {
+			if(arr[i]>arr[i+1]) {
+				index = i+1;
 			}
 		}
 		
